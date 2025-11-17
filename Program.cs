@@ -131,7 +131,8 @@ public class Program
                         "🍔 Yemək əlavə et",
                         "🗑️ Kateqoriya sil",
                         "🍽️ Bütün menyuya bax",
-                        "📅 Rezervasiyalara bax",
+                        "⭐ Rəylərə bax",
+                        "📅 Bütün rezervasiyalara bax",
                         "↩️ Əsas menyuya qayıt"
                     )
             );
@@ -163,6 +164,7 @@ public class Program
                         var mealPrice = AnsiConsole.Ask<decimal>("[yellow]Yeməyin qiymətini daxil edin:[/]");
 
                         admin.AddMealToCategory(restaurant.Menu, categoryChoice, new Meal { Name = mealName, Price = mealPrice });
+
                         AnsiConsole.MarkupLine($"[green]✅ {mealName} adlı yemək {categoryChoice} kateqoriyasına əlavə edildi![/]");
                         break;
 
@@ -187,7 +189,11 @@ public class Program
                         restaurant.ShowAllMeals();
                         break;
 
-                    case "📅 Rezervasiyalara bax":
+                    case "⭐ Rəylərə bax":
+                        restaurant.ShowReviews();
+                        break;
+
+                    case "📅 Bütün rezervasiyalara bax":
                         admin.ShowAllReservations(restaurant);
                         break;
 
@@ -204,6 +210,7 @@ public class Program
             Console.ReadKey();
         }
     }
+
 
     static void CustomerFlow(Restaurant restaurant, Customer customer)
     {
