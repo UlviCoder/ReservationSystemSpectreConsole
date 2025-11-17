@@ -1,4 +1,5 @@
 ﻿using ReservationSystem.Enum;
+using ReservationSystem.Interface;
 using Spectre.Console;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ReservationSystem.Model
 {
-    public class Restaurant
+    public class Restaurant : IRestaurant
     {
         public string Name { get; set; }
         public string Address { get; set; }
@@ -28,6 +29,11 @@ namespace ReservationSystem.Model
         public Admin Admin { get; set; }
         public Manager Manager { get; set; }
         public List<Review> Reviews { get; set; } = new();
+        public List<Table> Tables { get; set; } = new();
+        public List<Employee> Employees { get; set; } = new();
+        public List<Reservation> Reservations { get; set; } = new();
+        public List<Customer> Customers { get; set; } = new();
+        public List<Order> Orders { get; set; } = new();
 
         public Restaurant()
         {
@@ -243,12 +249,5 @@ namespace ReservationSystem.Model
                 }
             }
         }
-
-
-        public List<Table> Tables { get; set; } = new();
-        public List<Employee> Employees { get; set; } = new();
-        public List<Reservation> Reservations { get; set; } = new();
-        public List<Customer> Customers { get; set; } = new();
-        public List<Order> Orders { get; set; } = new();
     }
 }

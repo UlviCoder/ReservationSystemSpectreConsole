@@ -13,5 +13,6 @@ namespace ReservationSystem.Interface
         public void RemoveCategory(Menu menu, string categoryName);
         public void AddMealToCategory(Menu menu, string categoryName, Meal meal);
         public void RemoveMealFromCategory(Menu menu, string categoryName, string mealName);
+        public void ShowAllReservations(Restaurant restaurant);
     }
 }

@@ -19,8 +19,6 @@ namespace ReservationSystem.Model
                 Username = userName;
                 Fin = fin;
         }
-
-
         public void AddTable(Restaurant restaurant, Table table)
         {
             table.Restaurant = restaurant; 
@@ -35,8 +33,6 @@ namespace ReservationSystem.Model
                 throw new TableAlreadyExistsException($"Bu masa artıq mövcuddur!!! ({table.Number})");
             }
         }
-
-
         public void RemoveTable(Restaurant restaurant, int tableNumber)
         {
             var table = restaurant.Tables.FirstOrDefault(t => t.Number == tableNumber);
@@ -104,8 +100,6 @@ namespace ReservationSystem.Model
                 AnsiConsole.Write(panel);
             }
         }
-
-
         public decimal CalculateTotalIncome(List<Payment> payments)
         {
             var total = payments

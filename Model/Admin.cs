@@ -1,6 +1,6 @@
-﻿using ReservationSystem.Interface;
-using ReservationSystem.Exceptions;
-
+﻿using ReservationSystem.Exceptions;
+using ReservationSystem.Interface;
+using Spectre.Console;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -69,7 +69,27 @@ namespace ReservationSystem.Model
 
             category.Meals.Remove(meal);
         }
-        
+        public void ShowAllReservations(Restaurant restaurant)
+        {
+            if (!restaurant.Reservations.Any())
+            {
+                AnsiConsole.MarkupLine("[red]Heç bir rezervasiya yoxdur![/]");
+                return;
+            }
+
+            foreach (var r in restaurant.Reservations)
+            {
+                AnsiConsole.MarkupLine(
+                    $"[cyan]ID:[/] {r.Id}\n" +
+                    $"[yellow]Müştəri:[/] {r.Customer?.FullName}\n" +
+                    $"[yellow]Masa:[/] {r.Table?.Number}\n" +
+                    $"[yellow]Vaxt:[/] {r.ReservationTime}\n" +
+                    $"[yellow]Status:[/] [bold]{r.Status}[/]\n" +
+                    $"------------------------------------------"
+                );
+            }
+        }
+
 
     }
 }

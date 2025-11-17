@@ -131,6 +131,7 @@ public class Program
                         "🍔 Yemək əlavə et",
                         "🗑️ Kateqoriya sil",
                         "🍽️ Bütün menyuya bax",
+                        "📅 Rezervasiyalara bax",
                         "↩️ Əsas menyuya qayıt"
                     )
             );
@@ -186,6 +187,10 @@ public class Program
                         restaurant.ShowAllMeals();
                         break;
 
+                    case "📅 Rezervasiyalara bax":
+                        admin.ShowAllReservations(restaurant);
+                        break;
+
                     case "↩️ Əsas menyuya qayıt":
                         return;
                 }
@@ -199,6 +204,7 @@ public class Program
             Console.ReadKey();
         }
     }
+
     static void CustomerFlow(Restaurant restaurant, Customer customer)
     {
         while (true)

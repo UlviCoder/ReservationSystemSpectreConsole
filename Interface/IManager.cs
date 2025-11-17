@@ -12,5 +12,8 @@ namespace ReservationSystem.Interface
         public void AddTable(Restaurant restaurant, Table table);
         public void RemoveTable(Restaurant restaurant, int tableNumber);
         public decimal CalculateTotalIncome(List<Payment> payments);
+        public void AddMealSet(Menu menu, Set set);
+        public void RemoveMealSet(Menu menu, string setName);
+        public void ShowAllMealSets(Menu menu);
     }
 }
